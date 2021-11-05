@@ -6,13 +6,23 @@ function App() {
   // Manejar los estados
   const [descripcion, setDescripcion] = useState("Descripcion inicial")
   const [chiste, setChiste] = useState("Chiste inicial")
+  const [img, setImg] = useState()
 
   const onChangeDesc = (event) =>{
     setDescripcion(event.target.value)
   }
 
+  const onChangeChiste = (event) =>{
+    setChiste(event.target.value)
+  }
+
+  const onChangeImg = (event) =>{
+    setImg(event.target.value)
+    alert(event.target.value)
+  }
+
   const selectPicker = (
-    <select>
+    <select onChange={onChangeImg}>
       <option value="fire">Casa en llamas</option>
       <option value="futu">Futurama</option>
       <option value="hist">History channel</option>
@@ -21,13 +31,14 @@ function App() {
       <option value="smar">Smart guy</option>
     </select>
   );
+  //http://localhost:3000/img/hist.jpg
 
   const cajaDesc = (
     <input onChange={onChangeDesc} type="text" placeholder="Ingresa descripcion"></input>
   )
 
   const cajaRem = (
-    <input type="text" placeholder="Ingresa el chiste"></input>
+    <input onChange={onChangeChiste} type="text" placeholder="Ingresa el chiste"></input>
   )
 
   const estructura = (
@@ -35,7 +46,7 @@ function App() {
      <span>{descripcion}</span>
      <br></br>
      <span>{chiste}</span>
-     <img src=""></img>
+     <img src={"/img/"+img+".jpg"}></img>
    </div>
   )
 
