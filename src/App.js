@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./App.css";
+import html2canvas from "html2canvas";
 
 function App() {
 
   // Manejar los estados
-  const [descripcion, setDescripcion] = useState("Descripcion inicial")
-  const [chiste, setChiste] = useState("Chiste inicial")
-  const [img, setImg] = useState()
+  const [descripcion, setDescripcion] = useState()
+  const [chiste, setChiste] = useState()
+  const [img, setImg] = useState('fire')
 
   const onChangeDesc = (event) =>{
     setDescripcion(event.target.value)
@@ -18,7 +19,19 @@ function App() {
 
   const onChangeImg = (event) =>{
     setImg(event.target.value)
-    alert(event.target.value)
+    setChiste()
+    setDescripcion()
+    //alert(event.target.value)
+  }
+
+  const onClickExport = ()=>{
+    html2canvas(document.querySelector("#meme")).then(canvas => {
+      var img    = canvas.toDataURL("image/png");
+      var link = document.createElement('a');
+      link.download = 'meme.png';
+      link.href = img
+      link.click();
+  });
   }
 
   const selectPicker = (
@@ -41,8 +54,8 @@ function App() {
     <input onChange={onChangeChiste} type="text" placeholder="Ingresa el chiste"></input>
   )
 
-  const estructura = (
-   <div>
+  const Estructura = (
+   <div className="meme" id="meme">
      <span>{descripcion}</span>
      <br></br>
      <span>{chiste}</span>
@@ -50,7 +63,9 @@ function App() {
    </div>
   )
 
-  const boton = ( <button>Exportar</button>)
+  const Element = ()=> {return Estructura}
+
+  const boton = ( <button onClick={onClickExport}>Exportar</button>)
   return (
     <div className="App">
       {/* Select picker de memes */}
@@ -69,8 +84,8 @@ function App() {
       {/* boton de exportar*/}
       {boton}
 
-      {/* Estructura del meme*/}
-      {estructura}
+      {/* Estructura del meme, Componente */}
+      <Element/>
 
     </div>
   );
