@@ -65,7 +65,7 @@ function App() {
 
   const Element = ()=> {return Estructura}
 
-  const boton = ( <button className="botonexport" onClick={onClickExport}>Exportar</button>)
+  const boton = ( <button  className="botonexport" onClick={onClickExport}>Exportar</button>)
   return (
     <div className="App">
       {/* Select picker de memes */}

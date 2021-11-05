@@ -74,8 +74,8 @@
   transform: scale(1);
   left: 0;
   opacity: 1;
-  background-color: #f1703d;
-  border-bottom: 2px solid #fae8e1;
+  background-color: #d84911;
+  border-bottom: 3px solid #fae8e1;
   color: white;
   cursor: pointer;
 }
