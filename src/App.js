@@ -35,7 +35,7 @@ function App() {
   }
 
   const selectPicker = (
-    <select onChange={onChangeImg}>
+    <select class="chosen-value" onChange={onChangeImg}>
       <option value="fire">Casa en llamas</option>
       <option value="futu">Futurama</option>
       <option value="hist">History channel</option>
@@ -47,11 +47,11 @@ function App() {
   //http://localhost:3000/img/hist.jpg
 
   const cajaDesc = (
-    <input onChange={onChangeDesc} type="text" placeholder="Ingresa descripcion"></input>
+    <input className="label" onChange={onChangeDesc} type="text" placeholder="Ingresa descripcion"></input>
   )
 
   const cajaRem = (
-    <input onChange={onChangeChiste} type="text" placeholder="Ingresa el chiste"></input>
+    <input className="label" onChange={onChangeChiste} type="text" placeholder="Ingresa el chiste"></input>
   )
 
   const Estructura = (
@@ -59,13 +59,13 @@ function App() {
      <span>{descripcion}</span>
      <br></br>
      <span>{chiste}</span>
-     <img src={"/img/"+img+".jpg"}></img>
+     <img src={"/img/"+img+".jpg"} height="500px"></img>
    </div>
   )
 
   const Element = ()=> {return Estructura}
 
-  const boton = ( <button onClick={onClickExport}>Exportar</button>)
+  const boton = ( <button className="botonexport" onClick={onClickExport}>Exportar</button>)
   return (
     <div className="App">
       {/* Select picker de memes */}
